@@ -8,16 +8,26 @@
   <body>
     <div id="area"></div>
     <script type="text/babel">
+
       var Hello_World = React.createClass({
+
+        propTypes: {
+          name: React.PropTypes.string.isRequired
+        },
+
+        getDefaultProps: function() {
+          return {
+            name: 'Andre'
+          }
+        },
+
         render: function() {
           return (
-            <div class="eye-spy">
-              <h1>Hello World</h1>
-              <p>I spy with my little eye</p>
-            </div>
+            <h1>Hello {this.props.name}</h1>
           )
         }
       });
+
       ReactDOM.render(
         <Hello_World />,
         document.getElementById('area')
